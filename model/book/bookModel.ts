@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IBook } from "../../interfaces/book/book_interface";
 
-const bookSchema = new mongoose.Schema({
+const bookSchema: Schema<IBook> = new mongoose.Schema<IBook>({
   title: {
     type: String,
     required: [true, "Title was not Provided"],

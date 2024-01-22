@@ -10,7 +10,9 @@ export default class BookController {
       if (books?.success) {
         return res.status(200).send(success(books?.message, books?.data));
       }
-      return res.status(books?.error?.status).send(failure("Not Data Found"));
+      return res
+        .status(books?.error?.status)
+        .send(failure(books?.message, books?.error));
     } catch (error) {
       return res
         .status(HTTP_STATUS.INTERNAL_SERVER_ERROR)
