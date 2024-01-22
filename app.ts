@@ -5,6 +5,7 @@ import cors from "cors";
 import { CustomError } from "./interfaces/error/customError_interface";
 import bookRoute from "./routes/book/bookRoute";
 import cartRoute from "./routes/cart/cartRoute";
+import authRoute from "./routes/auth/authRoute";
 
 const app = express();
 const PORT = 8000;
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/book", bookRoute);
 app.use("/cart", cartRoute);
+app.use("/auth", authRoute);
 
 app.use((err: CustomError, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
