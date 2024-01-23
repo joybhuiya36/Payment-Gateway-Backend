@@ -1,5 +1,7 @@
 import express, { Request, Response } from "express";
 const app = express();
+import dotenv from "dotenv";
+dotenv.config();
 import cartModel from "../../model/cart/cartModel";
 import userModel from "../../model/user/userModel";
 import bookModel from "../../model/book/bookModel";
@@ -9,9 +11,8 @@ const SSLCommerzPayment = require("sslcommerz-lts");
 import { uuid } from "uuidv4";
 import { HTTP_STATUS } from "../../constants/statusCodes";
 import { failure, success } from "../../utils/common";
-import { reverse } from "dns";
-const store_id = "jack65ae87e13f55b";
-const store_passwd = "jack65ae87e13f55b@ssl";
+const store_id = process.env.STORE_ID;
+const store_passwd = process.env.STORE_PASSWORD;
 const is_live = false;
 
 export default class TransactionController {
