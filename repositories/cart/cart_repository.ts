@@ -6,9 +6,6 @@ export default class CartRepository {
   static async findCartbyUserId(
     userId: mongoose.Types.ObjectId
   ): Promise<ICartPopulate | null> {
-    return await CartModel.findOne({ user: userId }).populate(
-      "books.book",
-      "-_id"
-    );
+    return await CartModel.findOne({ user: userId }).populate("books.book");
   }
 }

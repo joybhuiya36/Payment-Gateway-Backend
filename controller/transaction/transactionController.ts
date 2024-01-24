@@ -121,7 +121,7 @@ export default class TransactionController {
       const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
       sslcz.init(data).then((apiResponse: any) => {
         let GatewayPageURL = apiResponse.GatewayPageURL;
-        console.log("Redirecting to: ", GatewayPageURL);
+        // console.log("Redirecting to: ", GatewayPageURL);
         return res.status(HTTP_STATUS.OK).send({ GatewayPageURL });
       });
     } catch (error) {
